@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import com.example.madooding.listview.adapter.CustomAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +14,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private String[] items = {"alecgator", "goat", "rabbit"};
-    final List<People> list = new ArrayList<>();
+    final List<Person> list = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list.add(new People("Akira", R.drawable.image));
-        list.add(new People("Job", R.drawable.image2));
+        list.add(new Person("Akira", R.drawable.image));
+        list.add(new Person("Job", R.drawable.image2));
 
 
     }
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && requestCode == RequestCode.EDIT_TEXT && data != null){
-            list.set(data.getIntExtra("position", -1), (People)data.getSerializableExtra("list"));
-//            Toast.makeText(this, ((People)data.getSerializableExtra("list")).getName(), Toast.LENGTH_SHORT).show();
+            list.set(data.getIntExtra("position", -1), (Person)data.getSerializableExtra("list"));
+//            Toast.makeText(this, ((Person)data.getSerializableExtra("list")).getName(), Toast.LENGTH_SHORT).show();
         }
 
     }
